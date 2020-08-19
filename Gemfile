@@ -36,10 +36,15 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-group :development, :test do
+group :development, :test do # 開発環境、テスト環境
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'sqlite3' # sqlite3
 end
+
+group :production do # 本番環境
+  gem 'pg', '>= 0.18', '< 2.0' # PostgreSQL
+end  
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
